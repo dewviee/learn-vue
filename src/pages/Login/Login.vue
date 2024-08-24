@@ -44,7 +44,9 @@ export default defineComponent({
       }
 
       try {
-        const result = await api.post(apiPathV1.auth.login, payload)
+        const result = await api.post(apiPathV1.auth.login, payload, {
+          withCredentials: true
+        })
 
         const data = result.data as TLoginResponse
 

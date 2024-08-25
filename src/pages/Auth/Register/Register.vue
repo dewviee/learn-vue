@@ -67,7 +67,7 @@ export default defineComponent({
       }
 
       try {
-        await api.post(apiPathV1.auth.register, payload, { withCredentials: true })
+        await api.post(apiPathV1.auth.register, payload)
 
         this.$router.push('/login')
       } catch (err) {

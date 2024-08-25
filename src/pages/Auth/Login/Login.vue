@@ -44,9 +44,7 @@ export default defineComponent({
       }
 
       try {
-        const result = await api.post(apiPathV1.auth.login, payload, {
-          withCredentials: true
-        })
+        const result = await api.post(apiPathV1.auth.login, payload)
 
         const data = result.data as TLoginResponse
 
@@ -65,8 +63,7 @@ export default defineComponent({
         const result = await api.get(apiPathV1.user.getUserProfile, {
           headers: {
             Authorization: `Bearer ${accessToken}`
-          },
-          withCredentials: true
+          }
         })
 
         const data = result?.data?.data as TGetUserProfileResponse

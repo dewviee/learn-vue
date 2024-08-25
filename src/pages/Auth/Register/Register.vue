@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import TextFieldComponent from '@/components/TextFieldComponent.vue'
+import router from '@/router/router'
 import api from '@/services/api'
 import { apiPathV1 } from '@/services/apiPath'
 import type { TApiError } from '@/types/api.type'
@@ -69,7 +70,7 @@ export default defineComponent({
       try {
         await api.post(apiPathV1.auth.register, payload)
 
-        this.$router.push('/login')
+        router.push('/login')
       } catch (err) {
         const error = err as AxiosError
         const errResponse = error.response?.data as TApiError

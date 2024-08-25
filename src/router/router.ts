@@ -9,7 +9,8 @@ import type { TRoute } from '@/types/router.type'
 const routes: TRoute[] = [
   { path: '/', component: HomePage },
   { path: '/about', component: AboutPage },
-  { path: '/login', component: Login, public: true }
+  { path: '/login', component: Login, public: true },
+  { path: '/register', component: Register, public: true }
 ]
 
 const router = createRouter({

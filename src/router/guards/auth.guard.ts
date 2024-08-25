@@ -1,7 +1,7 @@
+import type { TRoute } from '@/types/router.type'
 import type { Router } from 'vue-router'
-import { routes } from '../router'
 
-export function setupAuthGuard(router: Router) {
+export function setupAuthGuard(router: Router, routes: TRoute[]) {
   const publicRoutes = routes.filter((route) => route.public).map((route) => route.path)
 
   router.beforeEach((to, from, next) => {

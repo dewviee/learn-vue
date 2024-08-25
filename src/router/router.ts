@@ -3,6 +3,8 @@ import HomePage from '@/pages/Home/Home.vue'
 import AboutPage from '@/pages/About/About.vue'
 import Login from '@/pages/Auth/Login/Login.vue'
 import { setupAuthGuard } from './guards/auth.guard'
+import Register from '@/pages/Auth/Register/Register.vue'
+import type { TRoute } from '@/types/router.type'
 
 const routes: TRoute[] = [
   { path: '/', component: HomePage },
@@ -15,6 +17,6 @@ const router = createRouter({
   routes: routes
 })
 
-setupAuthGuard(router)
+setupAuthGuard(router, routes)
 
 export default router

@@ -4,5 +4,9 @@ import router from './router/router'
 import dayjs from 'dayjs'
 import buddhistEra from 'dayjs/plugin/buddhistEra'
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+app.use(router)
+
 dayjs.extend(buddhistEra)
+
+app.mount('#app')

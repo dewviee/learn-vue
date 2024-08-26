@@ -6,5 +6,8 @@ export const apiPathV1 = {
   },
   user: {
     getUserProfile: '/v1/user/profile'
+  },
+  post: {
+    getPosts: '/v1/post'
   }
 }

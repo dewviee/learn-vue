@@ -18,9 +18,11 @@ export function useFetchPosts(
 ) {
   const posts = ref<TPost[]>([])
   const isFetching = ref(false)
+  const isCooldown = ref(false)
+  const isLatestPost = ref(false)
 
   async function fetchPosts() {
-    if (isFetching.value) return
+    if (isFetching.value || isCooldown.value) return
 
     isFetching.value = true
 
@@ -39,6 +41,7 @@ export function useFetchPosts(
         params: payload,
         headers: { Authorization: `Bearer ${accessToken}` }
       })
+      isCooldown.value = true
 
       const response: TPostResponse = result.data
 
@@ -57,19 +60,18 @@ export function useFetchPosts(
         if (counter > 0) counter--
         else {
           clearInterval(intervalID)
-          isFetching.value = false
+          isCooldown.value = false
         }
       }, 1000)
     } catch (err) {
       console.log(err)
       alert('Something went wrong when fetching')
-      isFetching.value = false
     }
+    isFetching.value = false
   }
 
   function handleScroll() {
     const scrollPercentage = getScrollPercentage()
-
     if (scrollPercentage > 99) {
       fetchPosts()
 
@@ -77,5 +79,5 @@ export function useFetchPosts(
     }
   }
 
-  return { posts, fetchPosts, handleScroll }
+  return { posts, isFetching, isCooldown, fetchPosts, handleScroll }
 }

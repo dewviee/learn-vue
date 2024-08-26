@@ -18,4 +18,5 @@ export type TPostResponse = {
 export type FetchPostsConfig = {
   firstFetchQuantity: number
   eachTimeQuantity: number
+  fetchCoolDown: number
 }

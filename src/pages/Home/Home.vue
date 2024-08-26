@@ -9,7 +9,11 @@
       ></textarea>
       <button class="create-post-button">Post</button>
     </div>
-    <PostsComponent v-model:posts="posts" />
+    <PostsComponent
+      v-model:posts="posts"
+      v-model:isFetching="isFetching"
+      v-model:isCooldown="isCooldown"
+    />
   </div>
 </template>
 
@@ -24,7 +28,7 @@ export default defineComponent({
   components: { NavBar, PostsComponent },
   setup() {
     const createContentText = ref('')
-    const { posts, fetchPosts, handleScroll } = useFetchPosts()
+    const { posts, isFetching, isCooldown, fetchPosts, handleScroll } = useFetchPosts()
 
     onMounted(() => {
       window.addEventListener('scroll', handleScroll)
@@ -35,7 +39,7 @@ export default defineComponent({
       window.removeEventListener('scroll', handleScroll)
     })
 
-    return { createContentText, posts }
+    return { createContentText, posts, isFetching, isCooldown }
   }
 })
 </script>

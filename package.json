@@ -16,7 +16,8 @@
     "axios": "^1.7.4",
     "dayjs": "^1.11.13",
     "vue": "^3.4.29",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

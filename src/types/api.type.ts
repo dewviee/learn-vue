@@ -1,6 +1,6 @@
 export type TApiError = {
   message: string | string[]
   error: string
-  statusCode?: number
+  errorCode?: number
   code?: number
 }

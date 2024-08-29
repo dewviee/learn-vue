@@ -19,3 +19,9 @@ export type TRegisterForm = {
   password: string
   confirmPassword: string
 }
+
+export type RefreshAccessTokenResponse = {
+  data: {
+    token: string
+  }
+}

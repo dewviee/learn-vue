@@ -5,6 +5,7 @@
         <span class="post-username">{{ post.user.username }}</span>
         <span class="post-created-at">
           {{ formattedDates[i] }}
+          <span class="tooltip">{{ dayjs(post.createdAt).format('YYYY-MM-DD HH:mm:ss') }}</span>
         </span>
       </div>
       <div class="post-content">
@@ -53,7 +54,7 @@ export default defineComponent({
       })
     })
 
-    return { formattedDates }
+    return { formattedDates, dayjs }
   },
   props: {
     posts: {
@@ -105,6 +106,28 @@ export default defineComponent({
 .post-created-at {
   font-size: 8px;
   position: relative;
+}
+
+.post-created-at:hover {
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: max-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%; /* Position above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap; /* Prevent tooltip text from wrapping */
 }
 
 .post-created-at:hover .tooltip {

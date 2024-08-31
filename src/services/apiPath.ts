@@ -9,6 +9,7 @@ export const apiPathV1 = {
     getUserProfile: '/v1/user/profile'
   },
   post: {
+    createPost: '/v1/post',
     getPosts: '/v1/post'
   }
 }

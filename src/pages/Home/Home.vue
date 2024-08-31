@@ -13,9 +13,9 @@
 <script lang="ts">
 import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
 import NavBar from '@/components/NavBar/NavBar.vue'
-import PostsComponent from '@/components/PostsComponent.vue'
+import PostsComponent from '@/pages/Home/PostComponent/PostsComponent.vue'
 import { useFetchPosts } from '@/composables/useFetchPosts'
-import CreatePostComponent from '@/pages/Home/CreatePostComponent.vue'
+import CreatePostComponent from '@/pages/Home/PostComponent/CreatePostComponent.vue'
 
 export default defineComponent({
   name: 'HomePage',

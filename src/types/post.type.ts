@@ -3,6 +3,9 @@ export type TPost = {
   content: string
   createdAt: Date
   updatedAt: Date
+  user: {
+    username: string
+  }
 }
 
 export type TPostRequest = {
@@ -19,4 +22,12 @@ export type FetchPostsConfig = {
   firstFetchQuantity: number
   eachTimeQuantity: number
   fetchCoolDown: number
+}
+
+export type TCreatePostRequest = {
+  content: string
+}
+
+export type TCreatePostResponse = {
+  data: TPost
 }

@@ -2,8 +2,10 @@
   <div class="post-item-container">
     <div v-for="(post, i) in posts" :key="post.id" class="post">
       <div class="post-header">
-        <span class="post-username">{{ post.id }}</span>
-        <span class="post-created-at">{{ formattedDates[i] }}</span>
+        <span class="post-username">{{ post.user.username }}</span>
+        <span class="post-created-at">
+          {{ formattedDates[i] }}
+        </span>
       </div>
       <div class="post-content">
         {{ post.content }}
@@ -80,39 +82,46 @@ export default defineComponent({
 }
 
 .post {
-  width: 500px; /* Increased width */
+  width: 500px;
   max-width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px; /* Increased padding */
+  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.post-header,
-.post-footer {
+.post-header {
   display: flex;
-  align-items: center;
-  gap: 5px; /* Space between username and date */
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 5px;
 }
 
 .post-username {
-  font-weight: bold;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .post-created-at {
-  font-size: 10px;
+  font-size: 8px;
+  position: relative;
+}
+
+.post-created-at:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .post-content {
   font-size: 16px;
   line-height: 1.5;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
   border-radius: 50%;
   width: 10px;
   height: 10px;

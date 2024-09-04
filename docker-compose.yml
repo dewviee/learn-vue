@@ -6,8 +6,6 @@ services:
       - 3000:3000
     networks:
       - just-post-network
-    env_file:
-      - ./src/environments/.env.prod
 
 networks:
   just-post-network:
